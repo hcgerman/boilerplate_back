@@ -162,14 +162,20 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 
+with open(os.environ["PRIVATE_KEY_PATH"], 'r') as file:
+    SIGNING_KEY = file.read()
+
+with open(os.environ["PUBLIC_KEY_PATH"], 'r') as file:
+    VERIFYING_KEY = file.read()
+
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
     "ALGORITHM": "RS256",
-    "SIGNING_KEY": os.environ["JWT_SIGNING_KEY"],  # PRIVATE_KEY
-    "VERIFYING_KEY": os.environ["JWT_VERIFYING_KEY"],  # PUBLIC_KEY
+    "SIGNING_KEY": SIGNING_KEY,  # PRIVATE_KEY
+    "VERIFYING_KEY": VERIFYING_KEY,  # PUBLIC_KEY
     "AUDIENCE": None,
     "ISSUER": None,
     "AUTH_HEADER_TYPES": ("Bearer",),
