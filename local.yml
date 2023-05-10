@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  app:
+    container_name: app_back
+    build:
+      dockerfile: docker/local/django/Dockerfile
+    ports:
+      - "8080:8000"
+    command: ["./scripts/sh/run_dev.sh", "db" ]
+    env_file:
+      - docker/local/local.env
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5431:5432"
+    env_file:
+      - docker/local/local.env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
