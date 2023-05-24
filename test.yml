@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  app:
+    build:
+      dockerfile: docker/test/django/Dockerfile
+    command: [ "-svv", "db" ]
+    env_file:
+      - docker/test/test.env
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  db:
+    image: postgres:15-alpine
+    env_file:
+      - docker/test/test.env

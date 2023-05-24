@@ -6,7 +6,7 @@ services:
       dockerfile: docker/local/django/Dockerfile
     ports:
       - "8080:8000"
-    command: ["./scripts/sh/run_dev.sh", "db" ]
+    command: [ "./scripts/sh/run_dev.sh", "db" ]
     env_file:
       - docker/local/local.env
     volumes:
