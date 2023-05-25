@@ -1,4 +1,9 @@
 version: "3.9"
+
+volumes:
+  postgres_data_local:
+    driver: local
+
 services:
   app:
     container_name: app_back
@@ -19,4 +24,4 @@ services:
     env_file:
       - docker/local/local.env
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - postgres_data_local:/var/lib/postgresql/data

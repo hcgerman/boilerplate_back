@@ -19,3 +19,5 @@ data/
 
 **/*.pem
 **/*.env
+
+.pytest_cache/

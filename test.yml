@@ -3,7 +3,7 @@ services:
   app:
     build:
       dockerfile: docker/test/django/Dockerfile
-    command: [ "-svv", "db" ]
+    command: [ "-svv"]
     env_file:
       - docker/test/test.env
     volumes:

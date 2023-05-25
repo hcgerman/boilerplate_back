@@ -20,4 +20,4 @@ WORKDIR /app
 
 RUN pipenv sync --dev --system
 
-ENTRYPOINT ["scripts/sh/run_dev.sh"]
+ENTRYPOINT ["scripts/sh/run_local.sh"]
