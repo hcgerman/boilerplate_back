@@ -22,4 +22,4 @@ WORKDIR /app
 COPY . .
 
 ENTRYPOINT ["scripts/sh/run_test.sh"]
-CMD ["-svv", "db"]
+CMD ["-svv"]

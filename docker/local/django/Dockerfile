@@ -19,3 +19,5 @@ RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 RUN pipenv sync --dev --system
+
+ENTRYPOINT ["scripts/sh/run_dev.sh"]

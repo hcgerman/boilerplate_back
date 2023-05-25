@@ -47,7 +47,7 @@ To run the tests, you need to prepare your own docker-compose configuration file
 1. Build images: `docker-compose -f test.yml build`
 2. Run tests: `./run-test.sh`
 
-## Some extra commands that you can need in the future.
+## Some extra commands you might need in the future.
 
 ````bash
 # enter bash in docker container
@@ -61,21 +61,22 @@ pipenv install package
 pipenv install --dev package
 
 # run python commands
-pipenv run python manage.py migrate
+pipenv run python somepythonfile.py
 
+python manage.py migrate
 # generate *.po translation files
-pipenv run python manage.py makemessages -a
+python manage.py makemessages -a
 
 # create a new app in /apps directory
 # for example inventory app
 mkdir ./apps/inventory
-pipenv run python manage.py startapp inventory ./apps/inventory
+python manage.py startapp inventory ./apps/inventory
 ````
 
 Populate development db
 
 ````bash
-pipenv run python manage.py runscript seed_db
+python manage.py runscript seed_db
 ````
 
 ## Authors
